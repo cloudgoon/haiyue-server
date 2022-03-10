@@ -30,99 +30,99 @@ import org.springblade.core.tool.utils.Func;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import org.springblade.modules.haiyue.entity.Member;
-import org.springblade.modules.haiyue.vo.MemberVO;
-import org.springblade.modules.haiyue.wrapper.MemberWrapper;
-import org.springblade.modules.haiyue.service.IMemberService;
+import org.springblade.modules.haiyue.entity.Clazz;
+import org.springblade.modules.haiyue.vo.ClazzVO;
+import org.springblade.modules.haiyue.wrapper.ClazzWrapper;
+import org.springblade.modules.haiyue.service.IClazzService;
 import org.springblade.core.boot.ctrl.BladeController;
 
 /**
- * 会员表 控制器
+ * 班级表 控制器
  *
  * @author BladeX
  * @since 2022-03-10
  */
 @RestController
 @AllArgsConstructor
-@RequestMapping("haiyue/member")
-@Api(value = "会员表", tags = "会员表接口")
-public class MemberController extends BladeController {
+@RequestMapping("haiyue/clazz")
+@Api(value = "班级表", tags = "班级表接口")
+public class ClazzController extends BladeController {
 
-	private final IMemberService memberService;
+	private final IClazzService clazzService;
 
 	/**
 	 * 详情
 	 */
 	@GetMapping("/detail")
 	@ApiOperationSupport(order = 1)
-	@ApiOperation(value = "详情", notes = "传入member")
-	public R<MemberVO> detail(Member member) {
-		Member detail = memberService.getOne(Condition.getQueryWrapper(member));
-		return R.data(MemberWrapper.build().entityVO(detail));
+	@ApiOperation(value = "详情", notes = "传入clazz")
+	public R<ClazzVO> detail(Clazz clazz) {
+		Clazz detail = clazzService.getOne(Condition.getQueryWrapper(clazz));
+		return R.data(ClazzWrapper.build().entityVO(detail));
 	}
 
 	/**
-	 * 分页 会员表
+	 * 分页 班级表
 	 */
 	@GetMapping("/list")
 	@ApiOperationSupport(order = 2)
-	@ApiOperation(value = "分页", notes = "传入member")
-	public R<IPage<MemberVO>> list(Member member, Query query) {
-		IPage<Member> pages = memberService.page(Condition.getPage(query), Condition.getQueryWrapper(member));
-		return R.data(MemberWrapper.build().pageVO(pages));
+	@ApiOperation(value = "分页", notes = "传入clazz")
+	public R<IPage<ClazzVO>> list(Clazz clazz, Query query) {
+		IPage<Clazz> pages = clazzService.page(Condition.getPage(query), Condition.getQueryWrapper(clazz));
+		return R.data(ClazzWrapper.build().pageVO(pages));
 	}
 
 
 	/**
-	 * 自定义分页 会员表
+	 * 自定义分页 班级表
 	 */
 	@GetMapping("/page")
 	@ApiOperationSupport(order = 3)
-	@ApiOperation(value = "分页", notes = "传入member")
-	public R<IPage<MemberVO>> page(MemberVO member, Query query) {
-		IPage<MemberVO> pages = memberService.selectMemberPage(Condition.getPage(query), member);
+	@ApiOperation(value = "分页", notes = "传入clazz")
+	public R<IPage<ClazzVO>> page(ClazzVO clazz, Query query) {
+		IPage<ClazzVO> pages = clazzService.selectClazzPage(Condition.getPage(query), clazz);
 		return R.data(pages);
 	}
 
 	/**
-	 * 新增 会员表
+	 * 新增 班级表
 	 */
 	@PostMapping("/save")
 	@ApiOperationSupport(order = 4)
-	@ApiOperation(value = "新增", notes = "传入member")
-	public R save(@Valid @RequestBody Member member) {
-		return R.status(memberService.save(member));
+	@ApiOperation(value = "新增", notes = "传入clazz")
+	public R save(@Valid @RequestBody Clazz clazz) {
+		return R.status(clazzService.save(clazz));
 	}
 
 	/**
-	 * 修改 会员表
+	 * 修改 班级表
 	 */
 	@PostMapping("/update")
 	@ApiOperationSupport(order = 5)
-	@ApiOperation(value = "修改", notes = "传入member")
-	public R update(@Valid @RequestBody Member member) {
-		return R.status(memberService.updateById(member));
+	@ApiOperation(value = "修改", notes = "传入clazz")
+	public R update(@Valid @RequestBody Clazz clazz) {
+		return R.status(clazzService.updateById(clazz));
 	}
 
 	/**
-	 * 新增或修改 会员表
+	 * 新增或修改 班级表
 	 */
 	@PostMapping("/submit")
 	@ApiOperationSupport(order = 6)
-	@ApiOperation(value = "新增或修改", notes = "传入member")
-	public R submit(@Valid @RequestBody Member member) {
-		return R.status(memberService.saveOrUpdate(member));
+	@ApiOperation(value = "新增或修改", notes = "传入clazz")
+	public R submit(@Valid @RequestBody Clazz clazz) {
+		return R.status(clazzService.saveOrUpdate(clazz));
 	}
 
 	
 	/**
-	 * 删除 会员表
+	 * 删除 班级表
 	 */
 	@PostMapping("/remove")
 	@ApiOperationSupport(order = 7)
 	@ApiOperation(value = "逻辑删除", notes = "传入ids")
 	public R remove(@ApiParam(value = "主键集合", required = true) @RequestParam String ids) {
-		return R.status(memberService.deleteLogic(Func.toLongList(ids)));
+		return R.status(clazzService.deleteLogic(Func.toLongList(ids)));
 	}
 
 	

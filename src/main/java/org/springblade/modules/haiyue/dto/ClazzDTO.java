@@ -14,50 +14,21 @@
  *  this software without specific prior written permission.
  *  Author: Chill 庄骞 (smallchill@163.com)
  */
-package org.springblade.modules.haiyue.entity;
+package org.springblade.modules.haiyue.dto;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import org.springblade.core.mp.base.BaseEntity;
-import java.time.LocalDate;
+import org.springblade.modules.haiyue.entity.Clazz;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 会员表实体类
+ * 班级表数据传输对象实体类
  *
  * @author BladeX
  * @since 2022-03-10
  */
 @Data
-@TableName("haiyue_member")
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "Member对象", description = "会员表")
-public class Member extends BaseEntity {
-
+public class ClazzDTO extends Clazz {
 	private static final long serialVersionUID = 1L;
-
-	/**
-	* 会员编号
-	*/
-		@ApiModelProperty(value = "会员编号")
-		private Integer code;
-	/**
-	* 会员姓名
-	*/
-		@ApiModelProperty(value = "会员姓名")
-		private String name;
-	/**
-	* 会员电话
-	*/
-		@ApiModelProperty(value = "会员电话")
-		private String phone;
-	/**
-	* 出生日期
-	*/
-		@ApiModelProperty(value = "出生日期")
-		private LocalDate birth;
-
 
 }

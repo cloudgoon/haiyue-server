@@ -14,23 +14,36 @@
  *  this software without specific prior written permission.
  *  Author: Chill 庄骞 (smallchill@163.com)
  */
-package org.springblade.modules.haiyue.vo;
+package org.springblade.modules.haiyue.wrapper;
 
-import org.springblade.modules.haiyue.entity.Member;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import io.swagger.annotations.ApiModel;
+import org.springblade.core.mp.support.BaseEntityWrapper;
+import org.springblade.core.tool.utils.BeanUtil;
+import org.springblade.modules.haiyue.entity.Clazz;
+import org.springblade.modules.haiyue.vo.ClazzVO;
+import java.util.Objects;
 
 /**
- * 会员表视图实体类
+ * 班级表包装类,返回视图层所需的字段
  *
  * @author BladeX
  * @since 2022-03-10
  */
-@Data
-@EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "MemberVO对象", description = "会员表")
-public class MemberVO extends Member {
-	private static final long serialVersionUID = 1L;
+public class ClazzWrapper extends BaseEntityWrapper<Clazz, ClazzVO>  {
+
+	public static ClazzWrapper build() {
+		return new ClazzWrapper();
+ 	}
+
+	@Override
+	public ClazzVO entityVO(Clazz clazz) {
+		ClazzVO clazzVO = Objects.requireNonNull(BeanUtil.copy(clazz, ClazzVO.class));
+
+		//User createUser = UserCache.getUser(clazz.getCreateUser());
+		//User updateUser = UserCache.getUser(clazz.getUpdateUser());
+		//clazzVO.setCreateUserName(createUser.getName());
+		//clazzVO.setUpdateUserName(updateUser.getName());
+
+		return clazzVO;
+	}
 
 }

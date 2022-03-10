@@ -26,7 +26,7 @@ import java.util.Objects;
  * 会员表包装类,返回视图层所需的字段
  *
  * @author BladeX
- * @since 2022-03-09
+ * @since 2022-03-10
  */
 public class MemberWrapper extends BaseEntityWrapper<Member, MemberVO>  {
 

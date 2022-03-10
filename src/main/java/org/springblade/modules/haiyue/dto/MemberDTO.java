@@ -24,7 +24,7 @@ import lombok.EqualsAndHashCode;
  * 会员表数据传输对象实体类
  *
  * @author BladeX
- * @since 2022-03-09
+ * @since 2022-03-10
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

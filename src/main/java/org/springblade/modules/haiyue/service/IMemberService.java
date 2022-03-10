@@ -25,7 +25,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
  * 会员表 服务类
  *
  * @author BladeX
- * @since 2022-03-09
+ * @since 2022-03-10
  */
 public interface IMemberService extends BaseService<Member> {
 

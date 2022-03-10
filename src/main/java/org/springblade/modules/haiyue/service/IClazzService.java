@@ -14,23 +14,28 @@
  *  this software without specific prior written permission.
  *  Author: Chill 庄骞 (smallchill@163.com)
  */
-package org.springblade.modules.haiyue.vo;
+package org.springblade.modules.haiyue.service;
 
-import org.springblade.modules.haiyue.entity.Member;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import io.swagger.annotations.ApiModel;
+import org.springblade.modules.haiyue.entity.Clazz;
+import org.springblade.modules.haiyue.vo.ClazzVO;
+import org.springblade.core.mp.base.BaseService;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 
 /**
- * 会员表视图实体类
+ * 班级表 服务类
  *
  * @author BladeX
  * @since 2022-03-10
  */
-@Data
-@EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "MemberVO对象", description = "会员表")
-public class MemberVO extends Member {
-	private static final long serialVersionUID = 1L;
+public interface IClazzService extends BaseService<Clazz> {
+
+	/**
+	 * 自定义分页
+	 *
+	 * @param page
+	 * @param clazz
+	 * @return
+	 */
+	IPage<ClazzVO> selectClazzPage(IPage<ClazzVO> page, ClazzVO clazz);
 
 }

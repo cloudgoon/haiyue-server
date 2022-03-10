@@ -14,23 +14,29 @@
  *  this software without specific prior written permission.
  *  Author: Chill 庄骞 (smallchill@163.com)
  */
-package org.springblade.modules.haiyue.vo;
+package org.springblade.modules.haiyue.mapper;
 
-import org.springblade.modules.haiyue.entity.Member;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import io.swagger.annotations.ApiModel;
+import org.springblade.modules.haiyue.entity.Clazz;
+import org.springblade.modules.haiyue.vo.ClazzVO;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import java.util.List;
 
 /**
- * 会员表视图实体类
+ * 班级表 Mapper 接口
  *
  * @author BladeX
  * @since 2022-03-10
  */
-@Data
-@EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "MemberVO对象", description = "会员表")
-public class MemberVO extends Member {
-	private static final long serialVersionUID = 1L;
+public interface ClazzMapper extends BaseMapper<Clazz> {
+
+	/**
+	 * 自定义分页
+	 *
+	 * @param page
+	 * @param clazz
+	 * @return
+	 */
+	List<ClazzVO> selectClazzPage(IPage page, ClazzVO clazz);
 
 }
