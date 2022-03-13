@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.springblade.modules.haiyue.mapper.ScheduleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="scheduleResultMap" type="org.springblade.modules.haiyue.entity.Schedule">
+        <result column="id" property="id"/>
+        <result column="create_user" property="createUser"/>
+        <result column="create_dept" property="createDept"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="status" property="status"/>
+        <result column="is_deleted" property="isDeleted"/>
+        <result column="monday" property="monday"/>
+        <result column="tuesday" property="tuesday"/>
+        <result column="wednesday" property="wednesday"/>
+        <result column="thursday" property="thursday"/>
+        <result column="friday" property="friday"/>
+        <result column="saturday" property="saturday"/>
+        <result column="sunday" property="sunday"/>
+    </resultMap>
+
+
+    <select id="selectSchedulePage" resultMap="scheduleResultMap">
+        select * from haiyue_schedule where is_deleted = 0
+    </select>
+
+</mapper>
