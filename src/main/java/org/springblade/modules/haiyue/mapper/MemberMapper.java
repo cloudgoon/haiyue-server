@@ -26,7 +26,7 @@ import java.util.List;
  * 会员表 Mapper 接口
  *
  * @author BladeX
- * @since 2022-03-10
+ * @since 2022-03-15
  */
 public interface MemberMapper extends BaseMapper<Member> {
 

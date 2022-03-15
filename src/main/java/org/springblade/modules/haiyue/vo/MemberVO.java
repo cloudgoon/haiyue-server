@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiModel;
  * 会员表视图实体类
  *
  * @author BladeX
- * @since 2022-03-10
+ * @since 2022-03-15
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

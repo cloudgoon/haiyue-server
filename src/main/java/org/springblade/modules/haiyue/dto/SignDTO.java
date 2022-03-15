@@ -16,19 +16,19 @@
  */
 package org.springblade.modules.haiyue.dto;
 
-import org.springblade.modules.haiyue.entity.Member;
+import org.springblade.modules.haiyue.entity.Sign;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * 会员表数据传输对象实体类
+ * 会员签到表数据传输对象实体类
  *
  * @author BladeX
  * @since 2022-03-15
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class MemberDTO extends Member {
+public class SignDTO extends Sign {
 	private static final long serialVersionUID = 1L;
 
 }

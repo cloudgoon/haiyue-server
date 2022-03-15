@@ -14,21 +14,29 @@
  *  this software without specific prior written permission.
  *  Author: Chill 庄骞 (smallchill@163.com)
  */
-package org.springblade.modules.haiyue.dto;
+package org.springblade.modules.haiyue.mapper;
 
-import org.springblade.modules.haiyue.entity.Member;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import org.springblade.modules.haiyue.entity.Sign;
+import org.springblade.modules.haiyue.vo.SignVO;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import java.util.List;
 
 /**
- * 会员表数据传输对象实体类
+ * 会员签到表 Mapper 接口
  *
  * @author BladeX
  * @since 2022-03-15
  */
-@Data
-@EqualsAndHashCode(callSuper = true)
-public class MemberDTO extends Member {
-	private static final long serialVersionUID = 1L;
+public interface SignMapper extends BaseMapper<Sign> {
+
+	/**
+	 * 自定义分页
+	 *
+	 * @param page
+	 * @param sign
+	 * @return
+	 */
+	List<SignVO> selectSignPage(IPage page, SignVO sign);
 
 }

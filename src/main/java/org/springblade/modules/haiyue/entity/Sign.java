@@ -19,22 +19,25 @@ package org.springblade.modules.haiyue.entity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import org.springblade.core.mp.base.BaseEntity;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 会员表实体类
+ * 会员签到表实体类
  *
  * @author BladeX
  * @since 2022-03-15
  */
 @Data
-@TableName("haiyue_member")
+@TableName("haiyue_sign")
 @EqualsAndHashCode(callSuper = true)
-@ApiModel(value = "Member对象", description = "会员表")
-public class Member extends BaseEntity {
+@ApiModel(value = "Sign对象", description = "会员签到表")
+public class Sign extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
@@ -64,20 +67,11 @@ public class Member extends BaseEntity {
 		@ApiModelProperty(value = "家长姓名")
 		private String parentName;
 	/**
-	* 宝宝小名
+	* 签到时间
 	*/
-		@ApiModelProperty(value = "宝宝小名")
-		private String nickname;
-	/**
-	* 课程数
-	*/
-		@ApiModelProperty(value = "课程数")
-		private Integer classNum;
-	/**
-	* 赠课数
-	*/
-		@ApiModelProperty(value = "赠课数")
-		private Integer giveNum;
+		@ApiModelProperty(value = "签到时间")
+		private Date signDate;
 
+		private Long memberId;
 
 }

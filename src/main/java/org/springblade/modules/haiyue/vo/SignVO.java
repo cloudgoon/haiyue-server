@@ -14,21 +14,23 @@
  *  this software without specific prior written permission.
  *  Author: Chill 庄骞 (smallchill@163.com)
  */
-package org.springblade.modules.haiyue.dto;
+package org.springblade.modules.haiyue.vo;
 
-import org.springblade.modules.haiyue.entity.Member;
+import org.springblade.modules.haiyue.entity.Sign;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import io.swagger.annotations.ApiModel;
 
 /**
- * 会员表数据传输对象实体类
+ * 会员签到表视图实体类
  *
  * @author BladeX
  * @since 2022-03-15
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class MemberDTO extends Member {
+@ApiModel(value = "SignVO对象", description = "会员签到表")
+public class SignVO extends Sign {
 	private static final long serialVersionUID = 1L;
 
 }

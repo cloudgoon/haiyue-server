@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.springblade.modules.haiyue.mapper.MemberMapper">
+<mapper namespace="org.springblade.modules.haiyue.mapper.SignMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="memberResultMap" type="org.springblade.modules.haiyue.entity.Member">
+    <resultMap id="signResultMap" type="org.springblade.modules.haiyue.entity.Sign">
         <result column="id" property="id"/>
         <result column="create_user" property="createUser"/>
         <result column="create_dept" property="createDept"/>
@@ -17,14 +17,12 @@
         <result column="phone" property="phone"/>
         <result column="birth" property="birth"/>
         <result column="parent_name" property="parentName"/>
-        <result column="nickname" property="nickname"/>
-        <result column="class_num" property="classNum"/>
-        <result column="give_num" property="giveNum"/>
+        <result column="sign_date" property="signDate"/>
     </resultMap>
 
 
-    <select id="selectMemberPage" resultMap="memberResultMap">
-        select * from haiyue_member where is_deleted = 0
+    <select id="selectSignPage" resultMap="signResultMap">
+        select * from haiyue_sign where is_deleted = 0
     </select>
 
 </mapper>

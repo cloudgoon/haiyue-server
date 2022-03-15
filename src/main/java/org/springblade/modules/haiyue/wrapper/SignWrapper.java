@@ -14,21 +14,36 @@
  *  this software without specific prior written permission.
  *  Author: Chill 庄骞 (smallchill@163.com)
  */
-package org.springblade.modules.haiyue.dto;
+package org.springblade.modules.haiyue.wrapper;
 
-import org.springblade.modules.haiyue.entity.Member;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import org.springblade.core.mp.support.BaseEntityWrapper;
+import org.springblade.core.tool.utils.BeanUtil;
+import org.springblade.modules.haiyue.entity.Sign;
+import org.springblade.modules.haiyue.vo.SignVO;
+import java.util.Objects;
 
 /**
- * 会员表数据传输对象实体类
+ * 会员签到表包装类,返回视图层所需的字段
  *
  * @author BladeX
  * @since 2022-03-15
  */
-@Data
-@EqualsAndHashCode(callSuper = true)
-public class MemberDTO extends Member {
-	private static final long serialVersionUID = 1L;
+public class SignWrapper extends BaseEntityWrapper<Sign, SignVO>  {
+
+	public static SignWrapper build() {
+		return new SignWrapper();
+ 	}
+
+	@Override
+	public SignVO entityVO(Sign sign) {
+		SignVO signVO = Objects.requireNonNull(BeanUtil.copy(sign, SignVO.class));
+
+		//User createUser = UserCache.getUser(sign.getCreateUser());
+		//User updateUser = UserCache.getUser(sign.getUpdateUser());
+		//signVO.setCreateUserName(createUser.getName());
+		//signVO.setUpdateUserName(updateUser.getName());
+
+		return signVO;
+	}
 
 }

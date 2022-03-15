@@ -14,21 +14,28 @@
  *  this software without specific prior written permission.
  *  Author: Chill 庄骞 (smallchill@163.com)
  */
-package org.springblade.modules.haiyue.dto;
+package org.springblade.modules.haiyue.service;
 
-import org.springblade.modules.haiyue.entity.Member;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import org.springblade.modules.haiyue.entity.Sign;
+import org.springblade.modules.haiyue.vo.SignVO;
+import org.springblade.core.mp.base.BaseService;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 
 /**
- * 会员表数据传输对象实体类
+ * 会员签到表 服务类
  *
  * @author BladeX
  * @since 2022-03-15
  */
-@Data
-@EqualsAndHashCode(callSuper = true)
-public class MemberDTO extends Member {
-	private static final long serialVersionUID = 1L;
+public interface ISignService extends BaseService<Sign> {
+
+	/**
+	 * 自定义分页
+	 *
+	 * @param page
+	 * @param sign
+	 * @return
+	 */
+	IPage<SignVO> selectSignPage(IPage<SignVO> page, SignVO sign);
 
 }
